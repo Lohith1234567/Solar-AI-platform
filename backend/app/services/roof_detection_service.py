@@ -249,7 +249,7 @@ class RoofDetectionService:
         )
 
         if not segments:
-            logger.warning("No roof segments detected", extra={"filename": filename})
+            logger.warning("No roof segments detected", extra={"original_filename": filename})
             # Return a minimal response so the frontend doesn't crash
             segments = []
 
@@ -287,7 +287,7 @@ class RoofDetectionService:
         logger.info(
             "Roof detection completed",
             extra={
-                "filename": filename,
+                "original_filename": filename,
                 "segments": len(segments),
                 "usable_area_m2": total_usable,
                 "capacity_kw": capacity_kw,
